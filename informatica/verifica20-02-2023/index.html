@@ -1,0 +1,38 @@
+<html>
+
+<head>
+	<title>Verifica 20/02/2023</title>
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/flowbite/1.6.3/flowbite.min.css" rel="stylesheet" />
+    <style>
+    	.center{
+        	width: 20%;
+            height: 20%;
+            margin: auto;
+            text-align: center;
+        }
+    </style>
+</head>
+
+<body>
+
+	<div class="center">
+      <form method="post" action="db.php">
+          Inserire numero conto: <input class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500" type="number" min="1" name="numeroConto"><br>
+          Inserire data inizio: <input class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500" type="date" name="dataIniziale"><br>
+          Inserire data fine: <input class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500" type="date" name="dataFinale"><br>
+          Inserire cifra per importo: <input class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500" type="number" min="1" name="cifra"><br>
+          <input class="text-white bg-blue-700 hover:bg-blue-800 focus:ring-4 focus:ring-blue-300 font-medium rounded-lg text-sm px-5 py-2.5 mr-2 mb-2 dark:bg-blue-600 dark:hover:bg-blue-700 focus:outline-none dark:focus:ring-blue-800" type="submit" value="invio" name="submit">
+      </form>
+      <div style="text-align:left">
+        <p>Dati di esempio: <br>
+        * numero conto: 1234567890<br>
+        * data inzio: 01/01/2022<br>
+        * data fine: 20/01/2022<br>
+        * cifra importo: 1
+        </p>
+      </div>
+	</div>
+
+</body>
+
+</html>

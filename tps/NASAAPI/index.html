@@ -1,0 +1,41 @@
+<html>
+    <head>
+        <link rel="stylesheet" href="https://unpkg.com/flowbite@1.5.4/dist/flowbite.min.css" />
+        <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+        <script>
+            function getPicture(){
+                var settings = {
+                    "url": "https://api.nasa.gov/planetary/apod?api_key=axIF10hCHUagN6pDnTf49hOuc7yeyjwEaUGJCvmD",
+                    "method": "GET",
+                    "timeout": 0,
+                    "dataType": "JSON"
+                };
+
+                $.ajax(settings).done(function (response) {
+                    json = response;
+                    document.getElementById("button").style.display = "none";
+                    document.getElementById("data").style.display = "block";
+                    image = document.getElementById('image');
+                    image.className = "mx-auto max-w-lg h-auto rounded-lg";
+                    image.src = json['url'];
+                    document.getElementById("description").innerHTML = json['explanation'];
+                });
+            }
+        </script>
+    </head>
+    <body>
+        <div style="text-align: center">
+            <p class="text-4xl font-extrabold text-gray-900 dark:text-white text-blue-600">NASA PICTURE OF THE DAY</p>
+            <br>
+			<button type="button" id="button" onclick="getPicture()" class="text-white bg-blue-700 hover:bg-blue-800 focus:ring-4 focus:ring-blue-300 font-medium rounded-lg text-sm px-5 py-2.5 mr-2 mb-2 dark:bg-blue-600 dark:hover:bg-blue-700 focus:outline-none dark:focus:ring-blue-800">Get picture</button>
+            <div id="data" style="display: None">
+                <hr class="my-8 h-px bg-gray-200 border-0 dark:bg-gray-700">
+                <img id="image">
+                <hr class="my-8 h-px bg-gray-200 border-0 dark:bg-gray-700">
+                <p id="description" class="text-lg font-medium text-gray-900 dark:text-white">Description</p>
+            </div>
+		</div>
+        
+        <script src="https://unpkg.com/flowbite@1.5.4/dist/flowbite.js"></script>
+    </body>
+</html>

@@ -1,0 +1,65 @@
+<html>
+    <head>
+    	<meta name="theme-color" content="#0d4400">
+    	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <link rel="stylesheet" href="https://unpkg.com/flowbite@1.5.3/dist/flowbite.min.css" />
+        <link rel="manifest" href="manifest.json">
+        <script>
+            function calcolaIMC() {
+                var peso = document.getElementById('peso').value;
+                var altezza = document.getElementById('altezza').value;
+                peso = peso.replace(",", ".");
+                altezza = altezza.replace(",", ".");
+                if (!(isNaN(peso)) && !(isNaN(altezza)) && peso.length > 0 && altezza.length > 0) {
+                    var imc = (peso / (altezza * altezza)).toFixed(2);
+                    var stato = "";
+                    if (imc < 40) {
+                        if (imc < 30) {
+                            if (imc < 25) {
+                                if (imc < 18.5) {
+                                    stato = "Sottopeso";
+                                } else {
+                                    stato = "Normopeso";
+                                }
+                            } else {
+                                stato = "Sovrappeso";
+                            }
+                        } else {
+                            stato = "Obesit&agrave";
+                        }
+                    } else {
+                        stato = "Obesit&agrave grave";
+                    }
+                    document.getElementById("output").innerHTML = "<p class='text-red-600'>L' indice di massa corporea &eacute " + imc + "<br>" + stato + "</p>";
+                } else {
+                    alert("I valori inseriti non sono validi");
+                }
+            }
+        </script>
+        <script>
+        if ('serviceWorker' in navigator) {
+            navigator.serviceWorker.register('sw.js');
+        }
+    </script>
+    </head>
+
+    <body>  
+        <script src="https://unpkg.com/flowbite@1.5.3/dist/flowbite.js"></script>
+        <div style="text-align:center;width:50%;margin:auto;">
+            <p class="text-4xl font-black text-gray-900 dark:text-white">Calcolo indice massa corporea</p>
+            <p>&nbsp</p>
+            <form>
+                <div class="mb-6">
+                    <label for="base-input" class="block mb-2 text-sm font-medium text-gray-900 dark:text-gray-300">Peso [kg]</label>
+                    <input type="number" id="peso" min="1" max="400" step="1">
+                </div>
+                <div class="mb-6">
+                    <label for="base-input" class="block mb-2 text-sm font-medium text-gray-900 dark:text-gray-300">Altezza [m]</label>
+                    <input type="number" id="altezza" min="1" max="400" step="1">
+                </div>
+                <button type="button" onclick="calcolaIMC()" class="text-white bg-gradient-to-br from-pink-500 to-orange-400 hover:bg-gradient-to-bl focus:ring-4 focus:outline-none focus:ring-pink-200 dark:focus:ring-pink-800 font-medium rounded-lg text-sm px-5 py-2.5 text-center mr-2 mb-2">CALCOLA</button>
+            </form>
+            <div id="output"></div>
+        </div>
+    </body>
+</html>
